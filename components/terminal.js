@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-const Terminal = ({inputManage}) => {
+const Terminal = ({inputManage, noInitial}) => {
   const [cliInput, setCliInput] = React.useState('');
-  const [outputs, setOutputs] = React.useState([{input: 'chris = new Person()', output: 'Done.'}, {input: 'map = new Map()', output: 'Done.'}]);
+  const [outputs, setOutputs] = React.useState(noInitial ? [] : [{input: 'chris = new Person()', output: 'Done.'}, {input: 'map = new Map()', output: 'Done.'}]);
   const inputRef = React.useRef(null);
   const historyIndex = React.useRef(0);
   const mainRef = React.useRef(null);
@@ -22,7 +22,7 @@ const Terminal = ({inputManage}) => {
         if (cliInput === 'help') {
           output = result;
         } else {
-          output = `${result}: ${cliInput}`;
+          output = `${result}: ${cliInput}\nType 'help' to read manual`;
         }
       } else {
         output = 'Done.'
