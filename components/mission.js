@@ -15,10 +15,10 @@ const Mission = ({missions, step}) => {
 const Main = styled.div`
 .mission {
   position: absolute;
-  top: 70px;
+  bottom: 600px;
   left: 720px;
   width: 300px;
-  height: 80px;
+  height: 60px;
   background-color: rgba(80, 80, 80, 0.4);
   border-radius: 10px;
   padding: 10px 5px 10px 5px;

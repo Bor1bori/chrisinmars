@@ -293,13 +293,14 @@ const Main = styled.div`
 }
 .logo {
   position: absolute;
-  left: 490px;
-  top: 5px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: calc(20vh + 555px);
   height: 40px;
 }
 canvas {
   position: absolute;
-  top: 50px;
+  bottom: 50px;
   left: 50px;
 }
 

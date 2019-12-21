@@ -6,6 +6,10 @@ const Terminal = ({inputManage}) => {
   const [outputs, setOutputs] = React.useState([{input: 'chris = new Person()', output: 'Done.'}, {input: 'map = new Map()', output: 'Done.'}]);
   const inputRef = React.useRef(null);
   const historyIndex = React.useRef(0);
+  const mainRef = React.useRef(null);
+  React.useEffect(() => {
+    mainRef.current.scrollTop = mainRef.current.scrollHeight;
+  }, [outputs])
   const onKeyDown = (e) => {
     if (e.key === 'Enter') {
       if (cliInput === '') {
@@ -47,7 +51,7 @@ const Terminal = ({inputManage}) => {
     }
   }
   return (
-    <Main onClick={() => inputRef.current.focus()}>
+    <Main ref={mainRef} onClick={() => inputRef.current.focus()}>
       <div id='cli' >
         <output>{outputs.map((outLine, idx) => {
           return (<div key={idx}>
@@ -72,7 +76,7 @@ const Main = styled.div`
 position: absolute;
 width: 320px;
 height: 625px;
-top: 50px;
+bottom: 50px;
 right: 50px;
 padding: 0.5em 1.5em 1em 1em;
 font-size: 11pt;
